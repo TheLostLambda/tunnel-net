@@ -12,19 +12,13 @@ ENV client 10.20.30.2
 
 # The environment variables containing the WireGuard settings
 ENV ip 10.0.0.2/24
-ENV port 51280
+ENV port 51820
 ENV private_key CLIENT_PRIVATE_KEY
 ENV server_key SERVER_PUBLIC_KEY
 ENV endpoint peer-b.example
 
-# Copy over the WireGuard config and substitute in some values
+# Copy over the WireGuard config template
 COPY wg0tun.conf /etc/wireguard/wg0tun.conf
-RUN sed -i "s|<IP>|$ip|g;\
-            s|<PORT>|$port|g;\
-            s|<PRIVATE_KEY>|$private_key|g;\
-            s|<SERVER_KEY>|$server_key|g;\
-            s|<ENDPOINT>|$endpoint|g;\
-            " /etc/wireguard/wg0tun.conf
 
 # Copy over the network-sharing script and run it with bash
 COPY share.sh .

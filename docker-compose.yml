@@ -1,13 +1,14 @@
-version: "3.8"
-
 services:
   tunnel-net:
     build: .
     image: thelostlambda/tunnel-net:latest
     network_mode: "host"
     environment:
-      link: enp34s0
-      wanlink: wlo1
+      link: eth0
+      wanlink: wlan0
+      private_key: OsRjla/yRM9Gpv+bF1NxLBEfsKIX0mjiDX6z/MOXa1A=
+      server_key: roT7E7i93BxtLtomEZ8wH96GsUqfOsb8a2FxRcdLV0g=
+      endpoint: 119.142.206.87
     privileged: true
     cap_add:
       - NET_ADMIN
