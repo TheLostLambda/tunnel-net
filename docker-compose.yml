@@ -1,9 +1,9 @@
 version: "3.8"
 
 services:
-  share-net:
+  tunnel-net:
     build: .
-    image: thelostlambda/share-net:latest
+    image: thelostlambda/tunnel-net:latest
     network_mode: "host"
     environment:
       link: enp34s0
